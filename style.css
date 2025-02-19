@@ -1,0 +1,259 @@
+/* General Body Style */
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: whitesmoke; /* White background */
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    overflow: hidden;
+    position: relative; /* Ensures that absolute elements inside will be aligned relative to the body */
+    flex-direction: column; /* Stacks items vertically */
+}
+
+/* Welcome Page */
+.wrapper {
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+    font-size: 1.5em;
+    color: #e94d58; /* Original red color */
+    margin: 15px 0;
+}
+
+.gif {
+    height: 100%;
+    width: 100%;
+}
+
+.btn-group {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+button {
+    position: absolute;
+    width: 150px;
+    height: inherit;
+    color: white;
+    font-size: 1.2em;
+    border-radius: 30px;
+    outline: none;
+    cursor: pointer;
+    box-shadow: 0 2px 4px gray;
+    border: 2px solid #e94d58; /* Red border */
+    font-size: 1.2em;
+}
+
+button:nth-child(1) {
+    margin-left: -200px;
+    background: #e94d58; /* Red button */
+}
+
+button:nth-child(2) {
+    margin-right: -200px;
+    background: white;
+    color: #e94d58; /* Red text */
+}
+
+/* Message Box Styling */
+.message-box {
+    background-color: white;  /* White background for the box */
+    padding: 30px;
+    width: 80%;  /* Box width */
+    max-width: 600px; /* Max width to avoid too large on big screens */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 10px; /* Slightly rounded corners */
+    position: relative; /* Make sure the button can be positioned at the bottom inside the box */
+}
+
+/* Heading Styling */
+h2 {
+    font-size: 1.8em;
+    color: #e94d58;
+    margin-bottom: 20px;
+}
+
+/* Message Text */
+p {
+    font-size: 1em;
+    color: #333;
+    line-height: 1.2em;
+}
+
+/* Back to Gallery Button */
+.back-btn {
+    width: 150px;
+    height: 40px;
+    color: white;
+    background-color: #e94d58;
+    border-radius: 30px;
+    font-size: 1em;
+    box-shadow: 0 2px 4px gray;
+    border: 2px solid #e94d58;
+    display: block;
+    margin: 20px auto; /* Center the button horizontally */
+    cursor: pointer;
+    text-align: center;
+    line-height: 40px;
+    transition: background-color 0.3s ease;
+    position: absolute; /* Position relative to the page */
+    bottom: 30px; /* 30px from the bottom of the page */
+    left: 50%;
+    transform: translateX(-50%); /* Center the button horizontally */
+}
+
+.back-btn:hover {
+    background-color: #d7434c;
+}
+
+/* Gallery Page Styling */
+.gallery-wrapper {
+    display: none; 
+    text-align: center;
+    padding: 20px;
+}
+
+.gallery-title {
+    font-size: 1em;
+    margin-bottom: 5px;
+    color: #e94d58; /* Red title */
+}
+
+/* Horizontal Thread Styling */
+.thread {
+    position: absolute;
+    top: 50px; /* Adjust based on your desired distance from the top */
+    left: 0;
+    width: 100%;
+    height: 3px; /* Thickness of the thread */
+    background-color: #e94d58; /* Thread color */
+    z-index: 1; /* Ensure the thread is above the images but below the wrapper */
+}
+
+/* Polaroid Style for Images */
+.gallery {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    align-items: center;
+    position: relative;
+    padding-top: 120px; /* Extra padding for the space under the thread */
+}
+
+/* Polaroid image wrappers */
+.polaroid-wrapper {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 60px; /* Space between thread and image */
+    animation: sway-image 6s ease-in-out infinite;
+}
+
+/* Polaroid styling */
+.polaroid {
+    background-color: white;
+    width: 200px;
+    padding: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    position: relative;
+    border: 2px solid #d2cfcf; /* Dark border for images */
+    text-align: center;
+    border-radius: 5px; /* Curves the outer border to match the inner one */
+}
+
+/* Polaroid image */
+.polaroid img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.polaroid p {
+    font-size: 1em;
+    margin-top: 10px;
+    color: #333; /* Dark gray text */
+}
+
+/* Sway animation for images */
+@keyframes sway-image {
+    0% {
+        transform: rotate(0deg) translateX(0);
+    }
+    25% {
+        transform: rotate(var(--rotation-angle)) translateX(var(--translation-x));
+    }
+    50% {
+        transform: rotate(0deg) translateX(0);
+    }
+    75% {
+        transform: rotate(var(--rotation-angle-reversed)) translateX(var(--translation-x-reversed));
+    }
+    100% {
+        transform: rotate(0deg) translateX(0);
+    }
+}
+
+/* Custom Properties for Unique Animation */
+.polaroid-wrapper:nth-child(1) {
+    --rotation-angle: -3deg;
+    --rotation-angle-reversed: 3deg;
+    --translation-x: -5px;
+    --translation-x-reversed: 5px;
+    animation-duration: 6s;
+}
+
+.polaroid-wrapper:nth-child(2) {
+    --rotation-angle: 4deg;
+    --rotation-angle-reversed: -4deg;
+    --translation-x: -8px;
+    --translation-x-reversed: 8px;
+    animation-duration: 7s;
+}
+
+.polaroid-wrapper:nth-child(3) {
+    --rotation-angle: -5deg;
+    --rotation-angle-reversed: 5deg;
+    --translation-x: 10px;
+    --translation-x-reversed: -10px;
+    animation-duration: 5s;
+}
+
+.polaroid-wrapper:nth-child(4) {
+    --rotation-angle: 2deg;
+    --rotation-angle-reversed: -2deg;
+    --translation-x: -6px;
+    --translation-x-reversed: 6px;
+    animation-duration: 8s;
+}
+
+.polaroid-wrapper:nth-child(5) {
+    --rotation-angle: -4deg;
+    --rotation-angle-reversed: 4deg;
+    --translation-x: 7px;
+    --translation-x-reversed: -7px;
+    animation-duration: 9s;
+}
+
+/* Link styling */
+.polaroid-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.polaroid-link:hover .polaroid {
+    transform: scale(1.05); /* Add a slight zoom effect on hover */
+    transition: transform 0.3s ease;
+}
