@@ -13,9 +13,9 @@ body {
     min-height: 100vh;
     background: whitesmoke; /* White background */
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    overflow: hidden;
     position: relative; /* Ensures that absolute elements inside will be aligned relative to the body */
     flex-direction: column; /* Stacks items vertically */
+    overflow-y: auto;
 }
 
 /* Welcome Page */
